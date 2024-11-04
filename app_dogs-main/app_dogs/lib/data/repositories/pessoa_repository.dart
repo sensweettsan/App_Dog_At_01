@@ -1,3 +1,4 @@
+
 import 'package:app_dogs/core/database_helper.dart';
 import 'package:app_dogs/data/models/pessoa/pessoa_model.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
@@ -18,7 +19,7 @@ class PessoaRepository {
     return pessoaMaps.map((map) {
       return Pessoa(
           id: map['id'] as int,
-          name: map['name'] as String,
+          nome: map['name'] as String,
           telefone: map['telefone'] as String,
           email: map['email'] as String,
           endereco: map['endereco'] as String);

@@ -1,13 +1,13 @@
 class Pessoa {
   final int? id;
-  final String name;
+  final String nome;
   final String telefone;
   final String email;
   final String endereco;
 
   Pessoa({
     this.id,
-    required this.name,
+    required this.nome,
     required this.telefone,
     required this.email,
     required this.endereco,
@@ -16,7 +16,7 @@ class Pessoa {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'name': name,
+      'name': nome,
       'telefone': telefone,
       'email': email,
       'endereco': endereco,
