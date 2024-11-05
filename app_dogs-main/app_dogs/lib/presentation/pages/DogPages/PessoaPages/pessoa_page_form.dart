@@ -3,8 +3,6 @@
 // ver como faz a home page.
 //Estruturar a perzonalização das interfaces da WEB.
 
-
-
 import 'package:app_dogs/data/models/pessoa/pessoa_model.dart';
 import 'package:app_dogs/presentation/viewmodels/pessoa_viewmodel.dart';
 import 'package:flutter/material.dart';
@@ -29,11 +27,10 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
   Future<void> savePessoa() async {
     if (_formKey.currentState!.validate()) {
       final pessoa = Pessoa(
-        nome: nomeController.text,
-        telefone: telefoneController.text,
-        email: emailController.text,
-        endereco: enderecoController.text
-      );
+          nome: nomeController.text,
+          telefone: telefoneController.text,
+          email: emailController.text,
+          endereco: enderecoController.text);
       // print(dog.toMap());
       await _viewModel.addPessoa(pessoa);
 
@@ -104,16 +101,16 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                                   BorderSide(color: Colors.teal.shade700),
                             ),
                           ),
-                          // keyboardType: TextInputType.number,
-                          // validator: (value) {
-                          //   if (value == null || value.isEmpty) {
-                          //     return 'Por favor entre com a idade';
-                          //   }
-                          //   if (int.tryParse(value) == null) {
-                          //     return 'Por favor entre com um número válido';
-                          //   }
-                          //   return null;
-                          // },
+                          keyboardType: TextInputType.number,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Por favor entre com a idade';
+                            }
+                            if (int.tryParse(value) == null) {
+                              return 'Por favor entre com um número válido';
+                            }
+                            return null;
+                          },
                         ),
                         const SizedBox(height: 30),
                         ElevatedButton.icon(
