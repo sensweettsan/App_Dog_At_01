@@ -82,14 +82,14 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                         const SizedBox(height: 20),
                         TextFormField(
                           controller: nomeController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'Nome',
-                            labelStyle: TextStyle(
-                                color: const Color.fromARGB(255, 0, 0, 0)),
-                            border: const OutlineInputBorder(),
+                            labelStyle:
+                                TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                            border: OutlineInputBorder(),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                  color: const Color.fromARGB(255, 0, 0, 0)),
+                                  color: Color.fromARGB(255, 0, 0, 0)),
                             ),
                           ),
                           validator: (value) {
@@ -102,15 +102,14 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                         const SizedBox(height: 16),
                         TextFormField(
                           controller: telefoneController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'telefone',
-                            labelStyle: TextStyle(
-                                color: const Color.fromARGB(255, 0, 0, 0)),
-                            border: const OutlineInputBorder(),
+                            labelStyle:
+                                TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                            border: OutlineInputBorder(),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                  color:
-                                      const Color.fromARGB(255, 230, 107, 213)),
+                                  color: Color.fromARGB(255, 230, 107, 213)),
                             ),
                           ),
                           keyboardType: TextInputType.number,
@@ -127,29 +126,28 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                         const SizedBox(height: 16),
                         TextFormField(
                           controller: enderecoCepController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'CEP',
-                            labelStyle: TextStyle(
-                                color: const Color.fromARGB(255, 0, 0, 0)),
-                            border: const OutlineInputBorder(),
+                            labelStyle:
+                                TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                            border: OutlineInputBorder(),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                  color:
-                                      const Color.fromARGB(255, 230, 107, 213)),
+                                  color: Color.fromARGB(255, 230, 107, 213)),
                             ),
                           ),
                         ),
                         const SizedBox(height: 16),
                         TextFormField(
                           controller: enderecoAvRuaController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'Avenida - Rua',
-                            labelStyle: TextStyle(
-                                color: const Color.fromARGB(255, 0, 0, 0)),
-                            border: const OutlineInputBorder(),
+                            labelStyle:
+                                TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                            border: OutlineInputBorder(),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: const Color.fromARGB(255, 230, 107, 213),
+                                color: Color.fromARGB(255, 230, 107, 213),
                               ),
                             ),
                           ),
@@ -157,14 +155,14 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                         const SizedBox(height: 16),
                         TextFormField(
                           controller: enderecoNumeroController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'Número',
-                            labelStyle: TextStyle(
-                                color: const Color.fromARGB(255, 0, 0, 0)),
-                            border: const OutlineInputBorder(),
+                            labelStyle:
+                                TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                            border: OutlineInputBorder(),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: const Color.fromARGB(255, 230, 107, 213),
+                                color: Color.fromARGB(255, 230, 107, 213),
                               ),
                             ),
                           ),
@@ -172,14 +170,14 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                         const SizedBox(height: 16),
                         TextFormField(
                           controller: enderecoCidadeController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'Cidade',
-                            labelStyle: TextStyle(
-                                color: const Color.fromARGB(255, 0, 0, 0)),
-                            border: const OutlineInputBorder(),
+                            labelStyle:
+                                TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                            border: OutlineInputBorder(),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: const Color.fromARGB(255, 230, 107, 213),
+                                color: Color.fromARGB(255, 230, 107, 213),
                               ),
                             ),
                           ),
@@ -187,14 +185,14 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                         const SizedBox(height: 16),
                         TextFormField(
                           controller: enderecoEstadoController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'Estado',
-                            labelStyle: TextStyle(
-                                color: const Color.fromARGB(255, 0, 0, 0)),
-                            border: const OutlineInputBorder(),
+                            labelStyle:
+                                TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                            border: OutlineInputBorder(),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: const Color.fromARGB(255, 230, 107, 213),
+                                color: Color.fromARGB(255, 230, 107, 213),
                               ),
                             ),
                           ),
