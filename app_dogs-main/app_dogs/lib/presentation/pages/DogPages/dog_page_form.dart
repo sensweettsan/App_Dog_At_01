@@ -40,7 +40,7 @@ class _DogPageFormState extends State<DogPageForm> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cadastro de Dogs'),
-        backgroundColor: Colors.teal,
+        backgroundColor: const Color.fromARGB(255, 248, 92, 235),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -59,7 +59,7 @@ class _DogPageFormState extends State<DogPageForm> {
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
-                            color: Colors.teal,
+                            color: Color.fromARGB(255, 236, 73, 209),
                           ),
                         ),
                         const SizedBox(height: 20),
@@ -70,8 +70,9 @@ class _DogPageFormState extends State<DogPageForm> {
                             labelStyle: TextStyle(color: Colors.teal.shade700),
                             border: const OutlineInputBorder(),
                             focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.teal.shade700),
+                              borderSide: BorderSide(
+                                  color:
+                                      const Color.fromARGB(255, 253, 88, 226)),
                             ),
                           ),
                           validator: (value) {
@@ -86,11 +87,13 @@ class _DogPageFormState extends State<DogPageForm> {
                           controller: idadeController,
                           decoration: InputDecoration(
                             labelText: 'Idade',
-                            labelStyle: TextStyle(color: Colors.teal.shade700),
+                            labelStyle: TextStyle(
+                                color: const Color.fromARGB(255, 243, 77, 207)),
                             border: const OutlineInputBorder(),
                             focusedBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.teal.shade700),
+                              borderSide: BorderSide(
+                                  color:
+                                      const Color.fromARGB(255, 240, 82, 227)),
                             ),
                           ),
                           keyboardType: TextInputType.number,
@@ -108,7 +111,8 @@ class _DogPageFormState extends State<DogPageForm> {
                         ElevatedButton.icon(
                           onPressed: saveDog,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.teal,
+                            backgroundColor:
+                                const Color.fromARGB(255, 245, 84, 218),
                             padding: const EdgeInsets.symmetric(
                               vertical: 15.0,
                               horizontal: 30.0,

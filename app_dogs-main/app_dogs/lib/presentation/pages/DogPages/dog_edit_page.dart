@@ -55,7 +55,7 @@ class DogEditPageState extends State<DogEditPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Edição Dog'),
-        backgroundColor: Colors.teal,
+        backgroundColor: const Color.fromARGB(255, 248, 73, 225),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -77,7 +77,7 @@ class DogEditPageState extends State<DogEditPage> {
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.teal,
+                          color: Color.fromARGB(255, 247, 82, 211),
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -85,10 +85,12 @@ class DogEditPageState extends State<DogEditPage> {
                         controller: _nameController,
                         decoration: InputDecoration(
                           labelText: 'Nome',
-                          labelStyle: TextStyle(color: Colors.teal.shade700),
+                          labelStyle: TextStyle(
+                              color: const Color.fromARGB(255, 255, 107, 230)),
                           border: const OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.teal.shade700),
+                            borderSide: BorderSide(
+                                color: const Color.fromARGB(255, 236, 96, 194)),
                           ),
                         ),
                         validator: (value) {
@@ -103,7 +105,8 @@ class DogEditPageState extends State<DogEditPage> {
                         controller: _ageController,
                         decoration: InputDecoration(
                           labelText: 'Idade',
-                          labelStyle: TextStyle(color: Colors.teal.shade700),
+                          labelStyle: TextStyle(
+                              color: const Color.fromARGB(255, 228, 70, 188)),
                           border: const OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.teal.shade700),
@@ -124,7 +127,8 @@ class DogEditPageState extends State<DogEditPage> {
                       ElevatedButton.icon(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.teal,
+                          backgroundColor:
+                              const Color.fromARGB(255, 255, 69, 209),
                           padding: const EdgeInsets.symmetric(
                             vertical: 15.0,
                             horizontal: 30.0,

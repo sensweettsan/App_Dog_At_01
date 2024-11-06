@@ -83,7 +83,8 @@ class DogPageState extends State<DogPage> {
                     ),
                     child: ListTile(
                       leading: CircleAvatar(
-                        backgroundColor: Colors.teal.shade300,
+                        backgroundColor:
+                            const Color.fromARGB(255, 255, 111, 207),
                         child: Text(
                           dog.name[0], // Primeira letra do nome
                           style: const TextStyle(color: Colors.white),

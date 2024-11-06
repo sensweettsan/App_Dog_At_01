@@ -1,13 +1,13 @@
 class Pessoa {
   final int? id; //permite ser null
   final String nome;
-  final String? telefone; //poder ser null
-  final String? email;
-  final String? enderecoAvRua;
-  final String? enderecoNumero;
-  final String? enderecoCep;
-  final String? enderecoCidade;
-  final String? enderecoEstado;
+  final String telefone; //poder ser null
+  final String email;
+  final String enderecoAvRua;
+  final String enderecoNumero;
+  final String enderecoCep;
+  final String enderecoCidade;
+  final String enderecoEstado;
 
   Pessoa(
       {this.id,

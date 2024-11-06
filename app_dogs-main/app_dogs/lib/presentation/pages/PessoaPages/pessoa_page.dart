@@ -1,6 +1,6 @@
 import 'package:app_dogs/data/models/pessoa/pessoa_model.dart';
 import 'package:app_dogs/data/repositories/pessoa_repository.dart';
-import 'package:app_dogs/presentation/pages/DogPages/PessoaPages/pessoa_page_form.dart';
+import 'package:app_dogs/presentation/pages/PessoaPages/pessoa_page_form.dart';
 import 'package:app_dogs/presentation/viewmodels/pessoa_viewmodel.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +23,7 @@ class PessoaPageState extends State<PessoaPage> {
   }
 
   Future<void> _loadPessoas() async {
-    final pessoas = await _viewModel.getPessoas();
+    final pessoas = await _viewModel.getPessoa();
     if (mounted) {
       setState(() {
         _pessoas = pessoas;
@@ -104,7 +104,7 @@ class PessoaPageState extends State<PessoaPage> {
   void _editPessoa(Pessoa pessoa) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => PessoaEditPage(pessoa: pessoa)),
+      MaterialPageRoute(builder: (context) => PessoaPage()),
     );
   }
 
@@ -113,7 +113,7 @@ class PessoaPageState extends State<PessoaPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lista de Pessoas'),
-        backgroundColor: Colors.teal,
+        backgroundColor: const Color.fromARGB(255, 255, 87, 227),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -121,12 +121,13 @@ class PessoaPageState extends State<PessoaPage> {
             ? const Center(child: Text('Nenhuma pessoa disponível.'))
             : ListView.builder(
                 itemCount: _pessoas.length,
-                itemBuilder: (context, index) => _buildPessoaCard(_pessoas[index]),
+                itemBuilder: (context, index) =>
+                    _buildPessoaCard(_pessoas[index]),
               ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _addPessoa,
-        backgroundColor: Colors.teal,
+        backgroundColor: const Color.fromARGB(255, 238, 101, 208),
         tooltip: 'Adicionar Pessoa',
         child: const Icon(Icons.add, size: 30),
       ),

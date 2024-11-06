@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:app_dogs/presentation/pages/DogPages/PessoaPages/homePage.dart';
+import 'package:app_dogs/presentation/pages/PessoaPages/homePage.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
