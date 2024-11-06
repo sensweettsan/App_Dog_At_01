@@ -17,11 +17,11 @@ class HomePage extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: [
             // Cabeçalho do Drawer
-            DrawerHeader(
+            const DrawerHeader(
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 227, 114, 255),
+                color: Color.fromARGB(255, 227, 114, 255),
               ),
-              child: const Column(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
