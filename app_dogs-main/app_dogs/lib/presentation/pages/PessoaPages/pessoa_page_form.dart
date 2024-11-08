@@ -179,6 +179,9 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                                     color: Color.fromARGB(255, 230, 107, 213)),
                               ),
                             ),
+                            onChanged: (value) {
+                              if (value.length == 8) _buscarEndereco(value);
+                            },
                           ),
                           const SizedBox(height: 16),
                           TextFormField(
