@@ -10,7 +10,7 @@ import 'package:app_dogs/presentation/viewmodels/pessoa_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import '../../../data/repositories/pessoa_repository.dart';
+import '../../../../data/repositories/pessoa_repository.dart';
 
 class PessoaPageForm extends StatefulWidget {
   const PessoaPageForm({super.key});

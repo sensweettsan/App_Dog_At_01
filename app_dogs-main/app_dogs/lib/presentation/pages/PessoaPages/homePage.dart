@@ -1,5 +1,5 @@
 import 'package:app_dogs/presentation/pages/DogPages/dog_page.dart';
-import 'package:app_dogs/presentation/pages/PessoaPages/pessoa_page.dart';
+import 'package:app_dogs/presentation/pages/PessoaPages/widgets/pessoa_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
