@@ -83,14 +83,14 @@ class DogEditPageState extends State<DogEditPage> {
                       const SizedBox(height: 20),
                       TextFormField(
                         controller: _nameController,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Nome',
                           labelStyle: TextStyle(
-                              color: const Color.fromARGB(255, 255, 107, 230)),
-                          border: const OutlineInputBorder(),
+                              color: Color.fromARGB(255, 255, 107, 230)),
+                          border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: const Color.fromARGB(255, 236, 96, 194)),
+                                color: Color.fromARGB(255, 236, 96, 194)),
                           ),
                         ),
                         validator: (value) {
@@ -105,8 +105,8 @@ class DogEditPageState extends State<DogEditPage> {
                         controller: _ageController,
                         decoration: InputDecoration(
                           labelText: 'Idade',
-                          labelStyle: TextStyle(
-                              color: const Color.fromARGB(255, 228, 70, 188)),
+                          labelStyle: const TextStyle(
+                              color: Color.fromARGB(255, 228, 70, 188)),
                           border: const OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.teal.shade700),

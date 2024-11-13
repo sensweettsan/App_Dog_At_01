@@ -69,10 +69,9 @@ class _DogPageFormState extends State<DogPageForm> {
                             labelText: 'Nome',
                             labelStyle: TextStyle(color: Colors.teal.shade700),
                             border: const OutlineInputBorder(),
-                            focusedBorder: OutlineInputBorder(
+                            focusedBorder: const OutlineInputBorder(
                               borderSide: BorderSide(
-                                  color:
-                                      const Color.fromARGB(255, 253, 88, 226)),
+                                  color: Color.fromARGB(255, 253, 88, 226)),
                             ),
                           ),
                           validator: (value) {
@@ -85,15 +84,14 @@ class _DogPageFormState extends State<DogPageForm> {
                         const SizedBox(height: 16),
                         TextFormField(
                           controller: idadeController,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             labelText: 'Idade',
                             labelStyle: TextStyle(
-                                color: const Color.fromARGB(255, 243, 77, 207)),
-                            border: const OutlineInputBorder(),
+                                color: Color.fromARGB(255, 243, 77, 207)),
+                            border: OutlineInputBorder(),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                  color:
-                                      const Color.fromARGB(255, 240, 82, 227)),
+                                  color: Color.fromARGB(255, 240, 82, 227)),
                             ),
                           ),
                           keyboardType: TextInputType.number,
