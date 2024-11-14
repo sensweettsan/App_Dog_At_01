@@ -1,16 +1,36 @@
 import 'package:app_dogs/presentation/pages/DogPages/dog_page.dart';
+import 'package:app_dogs/presentation/pages/PessoaPages/widgets/main_home_page.dart';
 import 'package:app_dogs/presentation/pages/PessoaPages/widgets/pessoa_page.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+
+  final List<Widget> _pages = [
+    const MainHomePage(),
+    const DogPage(),
+    const PessoaPage(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Gestão de Pets e Clientes'),
-        backgroundColor: const Color.fromARGB(255, 223, 71, 236),
+        backgroundColor: const Color.fromARGB(255, 25, 150, 250),
       ),
       drawer: Drawer(
         child: ListView(
@@ -19,7 +39,7 @@ class HomePage extends StatelessWidget {
             // Cabeçalho do Drawer
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 227, 114, 255),
+                color: Color.fromARGB(255, 25, 150, 250),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +83,22 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: const Center(child: Text('Home page')),
+      body: _pages[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'home',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.pets), label: 'Dogs'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: 'Clientes',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
     );
   }
 }
