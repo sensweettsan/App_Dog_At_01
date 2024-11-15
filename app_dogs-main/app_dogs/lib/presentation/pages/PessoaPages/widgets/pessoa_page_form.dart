@@ -29,6 +29,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
   final enderecoCepController = TextEditingController();
   final enderecoCidadeController = TextEditingController();
   final enderecoEstadoController = TextEditingController();
+  final bairroController = TextEditingController();
   final PessoaViewmodel _viewModel = PessoaViewmodel(PessoaRepository());
 
   Future<void> savePessoa() async {
@@ -42,6 +43,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
         enderecoNumero: enderecoNumeroController.text,
         enderecoCidade: enderecoCidadeController.text,
         enderecoEstado: enderecoEstadoController.text,
+        bairro: bairroController.text,
       );
       // print(dog.toMap());
       await _viewModel.addPessoa(pessoa);
@@ -77,6 +79,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
         }
         setState(() {
           enderecoAvRuaController.text = data['logradouro'] ?? '';
+          bairroController.text = data['bairro'] ?? '';
           enderecoCidadeController.text = data['localidade'] ?? '';
           enderecoEstadoController.text = data['uf'] ?? '';
         });

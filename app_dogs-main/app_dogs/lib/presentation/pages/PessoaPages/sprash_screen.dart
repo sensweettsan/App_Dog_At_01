@@ -16,7 +16,7 @@ class _SprashScreenState extends State<SprashScreen> {
   }
 
   Future<void> _navigateToHome() async {
-    await Future.delayed(const Duration(seconds: 4));
+    await Future.delayed(const Duration(seconds: 2));
 
     if (mounted) {
       Navigator.of(context).pushReplacement(
@@ -29,7 +29,31 @@ class _SprashScreenState extends State<SprashScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.cyan,
-      body: Center(),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.pets,
+              size: 100,
+              color: Colors.white,
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Gestão de Pets e Clientes',
+              style: TextStyle(
+                fontSize: 24,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 10),
+            CircularProgressIndicator(
+              color: Colors.white,
+            )
+          ],
+        ),
+      ),
     );
   }
 }

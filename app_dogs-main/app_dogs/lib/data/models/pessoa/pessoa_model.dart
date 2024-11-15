@@ -8,17 +8,20 @@ class Pessoa {
   final String enderecoCep;
   final String enderecoCidade;
   final String enderecoEstado;
+  final String bairro;
 
-  Pessoa(
-      {this.id,
-      required this.nome,
-      required this.telefone,
-      required this.email,
-      required this.enderecoAvRua,
-      required this.enderecoNumero,
-      required this.enderecoCidade,
-      required this.enderecoCep,
-      required this.enderecoEstado});
+  Pessoa({
+    this.id,
+    required this.nome,
+    required this.telefone,
+    required this.email,
+    required this.enderecoAvRua,
+    required this.enderecoNumero,
+    required this.enderecoCidade,
+    required this.enderecoCep,
+    required this.enderecoEstado,
+    required this.bairro,
+  });
 
   Map<String, dynamic> toMap() {
     return {
@@ -30,7 +33,8 @@ class Pessoa {
       'enderecoNumero': enderecoNumero,
       'enderecoCidade': enderecoCidade,
       'enderecoCep': enderecoCep,
-      'enderecoEstado': enderecoEstado
+      'enderecoEstado': enderecoEstado,
+      'bairro': bairro
     };
   }
   //factory Pessoa.fromMap (Map<String>)
