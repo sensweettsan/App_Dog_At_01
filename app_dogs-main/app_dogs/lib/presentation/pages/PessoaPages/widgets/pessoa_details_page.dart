@@ -61,7 +61,7 @@ class PessoaDetailsPage extends StatelessWidget {
                         icon: FontAwesomeIcons.mapLocationDot,
                         label: 'Estado',
                         value: pessoa.enderecoEstado,
-                      )
+                      ),
                     ],
                   ),
                 ),
