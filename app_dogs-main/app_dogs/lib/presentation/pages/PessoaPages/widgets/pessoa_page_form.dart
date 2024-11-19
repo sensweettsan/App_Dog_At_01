@@ -6,11 +6,11 @@
 import 'dart:convert';
 
 import 'package:app_dogs/data/models/pessoa/pessoa_model.dart';
+import 'package:app_dogs/data/repositories/pessoa_repository.dart';
 import 'package:app_dogs/presentation/viewmodels/pessoa_viewmodel.dart';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
-import '../../../../data/repositories/pessoa_repository.dart';
 
 class PessoaPageForm extends StatefulWidget {
   const PessoaPageForm({super.key});
@@ -25,11 +25,11 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
   final telefoneController = TextEditingController();
   final emailController = TextEditingController();
   final enderecoAvRuaController = TextEditingController();
+  final bairroController = TextEditingController();
   final enderecoNumeroController = TextEditingController();
   final enderecoCepController = TextEditingController();
   final enderecoCidadeController = TextEditingController();
   final enderecoEstadoController = TextEditingController();
-  final bairroController = TextEditingController();
   final PessoaViewmodel _viewModel = PessoaViewmodel(PessoaRepository());
 
   Future<void> savePessoa() async {
@@ -39,11 +39,11 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
         telefone: telefoneController.text,
         email: emailController.text,
         enderecoAvRua: enderecoAvRuaController.text,
+        bairro: bairroController.text,
         enderecoCep: enderecoNumeroController.text,
         enderecoNumero: enderecoNumeroController.text,
         enderecoCidade: enderecoCidadeController.text,
         enderecoEstado: enderecoEstadoController.text,
-        bairro: bairroController.text,
       );
       // print(dog.toMap());
       await _viewModel.addPessoa(pessoa);
@@ -64,15 +64,15 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
       final response =
           await http.get(Uri.parse('https://viacep.com.br/ws/$cep/json/'));
 
-      if (!mounted) return; //verificar se o widget ainda está montado
+      if (!mounted) return;
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
 
-        if (data.containKey('erro')) {
+        if (data.containsKey('erro')) {
           if (mounted) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text('CEP não encontrado!')),
+              const SnackBar(content: Text('CEP não encontrado.')),
             );
           }
           return;
@@ -85,7 +85,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
         });
       } else if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Erro de rede ao buscar o endereço')),
+          const SnackBar(content: Text('Erro ao buscar o endereço.')),
         );
       }
     } catch (e) {
@@ -102,7 +102,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cadastro dos clientes'),
-        backgroundColor: const Color.fromARGB(255, 255, 109, 223),
+        backgroundColor: const Color.fromARGB(255, 25, 150, 250),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -122,7 +122,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 235, 98, 212),
+                              color: Color.fromARGB(255, 25, 150, 250),
                             ),
                           ),
                           const SizedBox(height: 20),
@@ -149,19 +149,19 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                           TextFormField(
                             controller: telefoneController,
                             decoration: const InputDecoration(
-                              labelText: 'telefone',
+                              labelText: 'Telefone',
                               labelStyle: TextStyle(
                                   color: Color.fromARGB(255, 0, 0, 0)),
                               border: OutlineInputBorder(),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: Color.fromARGB(255, 230, 107, 213)),
+                                    color: Color.fromARGB(255, 25, 150, 250)),
                               ),
                             ),
                             keyboardType: TextInputType.number,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Por favor entre com a idade';
+                                return 'Por favor entre com o telefone';
                               }
                               if (int.tryParse(value) == null) {
                                 return 'Por favor entre com um número válido';
@@ -169,9 +169,34 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                               return null;
                             },
                           ),
+                          const SizedBox(height: 20),
+                          TextFormField(
+                            controller: emailController,
+                            decoration: const InputDecoration(
+                              labelText: 'Email',
+                              labelStyle: TextStyle(
+                                  color: Color.fromARGB(255, 25, 150, 250)),
+                              border: OutlineInputBorder(),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor entre com Email';
+                              }
+                              if (int.tryParse(value) == null) {
+                                return 'Por favor entre com um Email válido';
+                              }
+                              return null;
+                            },
+                          ),
                           const SizedBox(height: 16),
                           TextFormField(
                             controller: enderecoCepController,
+                            onChanged: (value) {
+                              _buscarEndereco(value);
+                            },
                             decoration: const InputDecoration(
                               labelText: 'CEP',
                               labelStyle: TextStyle(
@@ -179,12 +204,9 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                               border: OutlineInputBorder(),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: Color.fromARGB(255, 230, 107, 213)),
+                                    color: Color.fromARGB(255, 25, 150, 250)),
                               ),
                             ),
-                            onChanged: (value) {
-                              if (value.length == 8) _buscarEndereco(value);
-                            },
                           ),
                           const SizedBox(height: 16),
                           TextFormField(
@@ -196,7 +218,22 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                               border: OutlineInputBorder(),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 230, 107, 213),
+                                  color: Color.fromARGB(255, 25, 150, 250),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          TextFormField(
+                            controller: bairroController,
+                            decoration: const InputDecoration(
+                              labelText: 'Bairro',
+                              labelStyle: TextStyle(
+                                  color: Color.fromARGB(255, 0, 0, 0)),
+                              border: OutlineInputBorder(),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 25, 150, 250),
                                 ),
                               ),
                             ),
@@ -211,7 +248,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                               border: OutlineInputBorder(),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 230, 107, 213),
+                                  color: Color.fromARGB(255, 25, 150, 250),
                                 ),
                               ),
                             ),
@@ -241,7 +278,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                               border: OutlineInputBorder(),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 230, 107, 213),
+                                  color: Color.fromARGB(255, 25, 150, 250),
                                 ),
                               ),
                             ),
@@ -251,7 +288,7 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                             onPressed: savePessoa,
                             style: ElevatedButton.styleFrom(
                               backgroundColor:
-                                  const Color.fromARGB(255, 250, 107, 207),
+                                  const Color.fromARGB(255, 25, 150, 250),
                               padding: const EdgeInsets.symmetric(
                                 vertical: 15.0,
                                 horizontal: 30.0,
