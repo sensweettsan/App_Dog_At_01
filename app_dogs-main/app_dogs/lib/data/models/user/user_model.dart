@@ -7,7 +7,7 @@ class User {
 
   User({
     this.id,
-    this.idPessoa,
+    required this.idPessoa,
     required this.email,
     required this.senha,
     required this.usuario,
