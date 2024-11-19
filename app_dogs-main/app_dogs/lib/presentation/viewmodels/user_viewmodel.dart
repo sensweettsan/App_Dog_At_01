@@ -29,5 +29,5 @@ class UserViewmodel {
       return 'E-mail não encontrado. Procure o administrador.';
     }
   }
-  // Método para
+  // Método para verificar
 }

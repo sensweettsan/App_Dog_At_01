@@ -3,12 +3,14 @@ class User {
   final int? idPessoa;
   final String email;
   final String senha;
+  final String usuario;
 
   User({
     this.id,
     this.idPessoa,
     required this.email,
     required this.senha,
+    required this.usuario,
   });
 
   Map<String, dynamic> toMap() {
@@ -17,6 +19,7 @@ class User {
       'idPessoa': idPessoa,
       'email': email,
       'senha': senha,
+      'usuario': usuario,
     };
   }
 }
