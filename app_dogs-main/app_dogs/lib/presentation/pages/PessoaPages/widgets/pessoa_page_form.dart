@@ -8,7 +8,6 @@ import 'dart:convert';
 import 'package:app_dogs/data/models/pessoa/pessoa_model.dart';
 import 'package:app_dogs/data/repositories/pessoa_repository.dart';
 import 'package:app_dogs/presentation/viewmodels/pessoa_viewmodel.dart';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -175,18 +174,16 @@ class _PessoaPageFormState extends State<PessoaPageForm> {
                             decoration: const InputDecoration(
                               labelText: 'Email',
                               labelStyle: TextStyle(
-                                  color: Color.fromARGB(255, 25, 150, 250)),
+                                  color: Color.fromARGB(255, 0, 0, 0)),
                               border: OutlineInputBorder(),
                               focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.black),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 25, 150, 250)),
                               ),
                             ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Por favor entre com Email';
-                              }
-                              if (int.tryParse(value) == null) {
-                                return 'Por favor entre com um Email válido';
                               }
                               return null;
                             },

@@ -26,8 +26,11 @@ class UserViewmodel {
 
       return 'Usuario cadastrado com sucesso!';
     } else {
-      return 'E-mail não encontrado. Procure o administrador.';
+      return 'E-mail não encontrado. Procure o Adminstrador!';
     }
   }
-  // Método para verificar
+
+  Future<bool> loginUser(String usuario, String senha) async {
+    return await repository.verifyLogin(usuario, senha);
+  }
 }
