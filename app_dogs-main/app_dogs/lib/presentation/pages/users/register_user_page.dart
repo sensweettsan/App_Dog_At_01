@@ -2,8 +2,6 @@ import 'package:app_dogs/data/repositories/user_repository.dart';
 import 'package:app_dogs/presentation/viewmodels/user_viewmodel.dart';
 import 'package:flutter/material.dart';
 
-import '../../../data/models/user/user_model.dart';
-
 class RegisterUserPage extends StatefulWidget {
   const RegisterUserPage({super.key});
 
@@ -12,35 +10,43 @@ class RegisterUserPage extends StatefulWidget {
 }
 
 class _RegisterUserPageState extends State<RegisterUserPage> {
-  final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final senhaController = TextEditingController();
   final usuarioController = TextEditingController();
-  final UserViewmodel _viewModel = UserViewmodel(UserRepository());
-  
-  Future<void> saveUser() async {
-    if (_formKey.currentState!.validate()){
-      final user = User(
-        senha: senhaController.text,
-        usuario: usuarioController.text,
-        email: emailController.text,
-    );
-    await _viewModel.addUser(user);
+  final UserViewmodel userViewModel = UserViewmodel(UserRepository());
 
-    if (mounted){
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Usuario adicionado com sucesso!')),
-      );
-      NavigationBar.pop(context);
-    }
+  final _formKey = GlobalKey<FormState>();
+
+  registerUserPage() async {
+    if (_formKey.currentState?.validate() ?? false) {
+      final email = emailController.text;
+      final usuario = usuarioController.text;
+      final senha = senhaController.text;
+
+      final message = await userViewModel.registerUser(email, usuario, senha);
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(message),
+          backgroundColor:
+              message.contains('Sucesso') ? Colors.green : Colors.red,
+        ));
+        if (message.contains('Sucesso')) {
+          /*Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(build: (context) => const LoginPage()),
+          );*/
+        }
+      }
     }
   }
 
-
-
-
-
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cadastre seu usuario'),
+      ),
+    );
   }
 }
