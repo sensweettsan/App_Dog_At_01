@@ -1,7 +1,7 @@
 import 'package:app_dogs/presentation/pages/DogPages/dog_page.dart';
 import 'package:app_dogs/presentation/pages/PessoaPages/main_home_page.dart';
 import 'package:app_dogs/presentation/pages/PessoaPages/widgets/pessoa_page.dart';
-import 'package:app_dogs/presentation/pages/users/register_user_page.dart';
+// import 'package:app_dogs/presentation/pages/users/register_user_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -81,18 +81,18 @@ class _HomePageState extends State<HomePage> {
                         builder: (context) => const PessoaPage()));
               },
             ),
-            ListTile(
-              leading: const Icon(Icons.account_box,
-                  color: Color.fromARGB(255, 0, 0, 0)),
-              title: const Text('Cadastro'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const RegisterUserPage()),
-                );
-              },
-            )
+            // ListTile(
+            //   leading: const Icon(Icons.account_box,
+            //       color: Color.fromARGB(255, 0, 0, 0)),
+            //   title: const Text('Cadastro'),
+            //   onTap: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //           builder: (context) => const RegisterUserPage()),
+            //     );
+            //   },
+            // )
           ],
         ),
       ),

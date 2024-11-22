@@ -46,6 +46,57 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cadastre seu usuario'),
+        backgroundColor: const Color.fromARGB(255, 255, 88, 200),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              Card(
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Form(
+                    child: Column(
+                      children: [
+                        const Text(
+                          'Faça seu cadastro',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 200, 103, 13),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        TextFormField(
+                          controller: usuarioController,
+                          decoration: const InputDecoration(
+                            labelText: 'Usuario',
+                            labelStyle:
+                                TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+                            border: OutlineInputBorder(),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 0, 0, 0)),
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Por favor entre com um usuario';
+                            }
+                            return null;
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
